@@ -1,0 +1,66 @@
+.home-container {
+  height: 100%;
+  .hero-section {
+    padding: 4em 0;
+    background-color: #1a253c;
+    color: #fff;
+
+    .group-togther {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 5em;
+      align-items: center;
+    }
+
+    .title {
+      font-size: 3.75rem;
+      font-weight: 500;
+
+      span {
+        color: #43afff;
+      }
+    }
+
+    .get-started-btn {
+      color: #fff;
+      font-size: 0.9rem;
+      background-color: #43afff;
+      border: 1px solid #43afff;
+      text-align: center;
+      display: inline-block;
+      border-radius: 5px;
+      padding: 1em 2em;
+      margin-top: 2em;
+      letter-spacing: 0px;
+    }
+
+    .hero-img {
+      width: 35em;
+      margin-bottom: -8em;
+
+      img {
+        // box-shadow: 0px 30px 36px #557da526;
+        border-radius: 20px;
+      }
+    }
+  }
+
+  .overview {
+    background-color: #edf6ff;
+    padding-top: 10em;
+    padding-bottom: 10em;
+
+    .section-title {
+      font-size: 22px;
+      margin: 2em 0;
+    }
+
+    .why-us {
+      .card-section {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 2em;
+      }
+    }
+  }
+}

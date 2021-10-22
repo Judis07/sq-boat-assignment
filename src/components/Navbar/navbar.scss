@@ -1,0 +1,21 @@
+.page-nav {
+  background-color: #1a253c;
+
+  .group-two {
+    padding: 1em 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ffffff45;
+  }
+
+  .page-logo {
+    font-weight: bold;
+    font-size: 1.375rem;
+    color: #ffffff;
+
+    span {
+      color: #43afff;
+    }
+  }
+}

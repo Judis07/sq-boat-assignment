@@ -1,7 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;700&display=swap");
+
 *,
 html,
 body {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: "Arimo", sans-serif;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  height: 100vh;
+}
+
+#root {
+  height: 100%;
+}
+
+img {
+  width: 100%;
+}
+
+a {
+  color: initial;
+  text-decoration: none;
+}
+
+.bg {
+  height: 100%;
+  // background: linear-gradient(rgba(0, 0, 0, 0.5) 100%, rgba(0, 0, 0, 0.5) 100%);
+
+  // background: linear-gradient(to bottom, #303f60, #edf6ff);
+}
+
+.container {
+  width: 90%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.inner-container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
 }
