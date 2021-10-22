@@ -1,7 +1,10 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from "./pages/Home/home";
+import ForgotPassword from "./pages/LoginSignup/forgotpassword";
 import Login from "./pages/LoginSignup/login";
+import ResetPassword from "./pages/LoginSignup/resetpassword";
 import SignUp from "./pages/LoginSignup/signup";
+import PostJob from "./pages/PostJob/postJob";
 
 function App() {
   return (
@@ -10,6 +13,9 @@ function App() {
         <Route path="/" component={Home} exact />
         <Route path="/login" component={Login} exact />
         <Route path="/signup" component={SignUp} exact />
+        <Route path="/forgot-password" component={ForgotPassword} exact />
+        <Route path="/reset-password" component={ResetPassword} exact />
+        <Route path="/post-a-job" component={PostJob} exact />
       </Switch>
     </BrowserRouter>
   );
