@@ -30,6 +30,7 @@ const Login = () => {
               placeholder="Enter your email"
               getValuesFn={getValuesFn}
               btnClicked={btnClicked}
+              required={true}
             />
 
             <Input
@@ -39,6 +40,7 @@ const Login = () => {
               placeholder="Enter your password"
               getValuesFn={getValuesFn}
               btnClicked={btnClicked}
+              required={true}
               extraLabel={{
                 name: "Forgot Password?",
                 link: "/forgot-password",
@@ -55,7 +57,7 @@ const Login = () => {
 
           <div className="footer">
             New to MyJobs?{" "}
-            <Link className="register-link" to="/register">
+            <Link className="register-link" to="/signup">
               Create an account
             </Link>
           </div>

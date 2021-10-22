@@ -15,6 +15,10 @@ html {
 
 body {
   height: 100vh;
+  background-image: url(./bgDark2.svg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-color: #edf6ff;
 }
 
 #root {
@@ -47,4 +51,13 @@ a {
   width: 90%;
   max-width: 1100px;
   margin: 0 auto;
+}
+
+.group-togther {
+  display: flex;
+  justify-content: space-between;
+}
+
+.margin-left {
+  margin-left: 1em;
 }

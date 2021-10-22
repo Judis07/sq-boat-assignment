@@ -4,7 +4,16 @@ import { Link } from "react-router-dom";
 import "./styles.scss";
 
 const Input = (props) => {
-  const { name, label, placeholder, type, btnClicked, getValuesFn } = props;
+  const {
+    name,
+    label,
+    placeholder,
+    type,
+    compClass,
+    btnClicked,
+    required,
+    getValuesFn,
+  } = props;
 
   const [value, setValue] = useState("");
 
@@ -28,7 +37,7 @@ const Input = (props) => {
   };
 
   return (
-    <div className="form-input">
+    <div className={`${compClass} form-input`}>
       <div className="label-container">
         <label className="form-label">{label}</label>
 
@@ -44,10 +53,10 @@ const Input = (props) => {
         name={name}
         placeholder={placeholder}
         value={value}
-        className={btnClicked && !value ? "input-err" : ""}
+        className={btnClicked && required && !value ? "input-err" : ""}
       />
 
-      {btnClicked && !value && (
+      {btnClicked && required && !value && (
         <div className="mandatory-err">This field is mandatory</div>
       )}
     </div>
