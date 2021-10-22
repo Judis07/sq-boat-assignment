@@ -53,6 +53,23 @@ a {
   justify-content: space-between;
 }
 
+.submit {
+  text-align: center;
+  margin: 2em 0;
+
+  .login-btn {
+    cursor: pointer;
+    color: #fff;
+    font-size: 0.9rem;
+    background-color: #43afff;
+    border: none;
+    text-align: center;
+    display: inline-block;
+    border-radius: 5px;
+    padding: 0.8em 2.5em;
+  }
+}
+
 .margin-left {
   margin-left: 1em;
 }

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Input from "../../components/Input/input";
 import Navbar from "../../components/Navbar/navbar";
 
-import "./login.scss";
+import "./styles.scss";
 
 const Login = () => {
   const [btnClicked, setBtnClicked] = useState(false);
@@ -15,11 +15,11 @@ const Login = () => {
   };
 
   return (
-    <div className="login-container">
+    <div className="login-signup-container">
       <Navbar />
 
       <div className="content">
-        <div className="login-form">
+        <div className="form-div">
           <h3>Login</h3>
 
           <div className="form-elements">

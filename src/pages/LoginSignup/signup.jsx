@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Input from "../../components/Input/input";
 import Navbar from "../../components/Navbar/navbar";
 
-import "./signup.scss";
+import "./styles.scss";
 
 const SignUp = () => {
   const [btnClicked, setBtnClicked] = useState(false);
@@ -14,11 +14,11 @@ const SignUp = () => {
     setBtnClicked(true);
   };
   return (
-    <div className="signup-container">
+    <div className="login-signup-container">
       <Navbar />
 
       <div className="content">
-        <div className="login-form">
+        <div className="form-div">
           <h3>Signup</h3>
 
           <div className="form-elements">
