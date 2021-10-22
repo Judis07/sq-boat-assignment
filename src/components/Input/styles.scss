@@ -1,0 +1,44 @@
+.form-input {
+  margin-top: 1em;
+
+  .label-container {
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+  }
+  label {
+    display: block;
+    color: #303f60;
+
+    margin-bottom: 0.5em;
+  }
+
+  .extra-label {
+    color: #43afff;
+  }
+
+  input {
+    width: 100%;
+    background: none;
+    // border: 1px solid #43afff;
+    border-radius: 5px;
+    border: 1px solid #c6c6c6;
+    color: #7e7e7e;
+    font-size: 13px;
+    outline: none;
+    padding: 0.6em;
+    width: 100%;
+    margin-bottom: 0.5em;
+  }
+
+  .input-err {
+    border: 1px solid #ff333380;
+  }
+
+  .mandatory-err {
+    color: #ff0000;
+    font-weight: 500;
+    text-align: right;
+    font-size: 12px;
+  }
+}
