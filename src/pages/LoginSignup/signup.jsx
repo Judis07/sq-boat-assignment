@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import Input from "../../components/Input/input";
 import Navbar from "../../components/Navbar/navbar";
 
@@ -10,8 +11,32 @@ const SignUp = () => {
 
   const getValuesFn = () => {};
 
-  const onSubmit = () => {
-    setBtnClicked(true);
+  const onSubmit = async () => {
+    // setBtnClicked(true);\
+
+    const API_URL = "https://jobs-api.squareboat.info/api/v1//auth/register";
+
+    // this is a test user
+
+    const params = JSON.stringify({
+      email: "arvind@myjob.com",
+      password: "arvindmyjob@9876",
+      confirmPassword: "arvindmyjob@9876",
+      userRole: 0,
+      name: "Arvind",
+    });
+
+    try {
+      const res = await axios.post(API_URL, params, {
+        headers: {
+          "content-type": "application/json",
+        },
+      });
+
+      console.log("res", res);
+    } catch (err) {
+      console.log("err", err);
+    }
   };
   return (
     <div className="login-signup-container">

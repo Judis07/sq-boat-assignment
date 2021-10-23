@@ -1,0 +1,23 @@
+.dashboard-container {
+  position: relative;
+  color: #fff;
+  .page-inner-nav {
+    margin: 2em 0;
+  }
+  .job-list {
+    h3 {
+      font-size: 22px;
+    }
+  }
+
+  .post-job-action {
+    position: absolute;
+    top: 45em;
+    left: 40%;
+
+    .job-msg {
+      font-size: 20px;
+      color: #303f60;
+    }
+  }
+}
