@@ -3,8 +3,10 @@ import Popover from "@mui/material/Popover";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import { logout } from "../../../utilis/logout";
 import "./logout.scss";
+import { getFirstLetter } from "../../../utilis/getFirstWord";
 
 const Logout = () => {
+  const currentUser = JSON.parse(localStorage.getItem("user"));
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClick = (event) => {
@@ -21,7 +23,7 @@ const Logout = () => {
     <>
       <div className="user-logout-container" onClick={handleClick}>
         <div className="user-logout">
-          <div className="username">A</div>
+          <div className="username">{getFirstLetter(currentUser.name)}</div>
         </div>
         <div>
           <ArrowDropDownIcon />

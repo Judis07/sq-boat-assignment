@@ -78,3 +78,13 @@ a {
   font-size: 2em;
   margin: 2em 0;
 }
+
+.success-message {
+  color: green !important;
+  text-align: center;
+}
+
+.err-msg {
+  color: red !important;
+  text-align: center;
+}

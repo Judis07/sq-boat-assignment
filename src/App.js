@@ -28,6 +28,7 @@ function App() {
               return currentUser ? <Redirect to="/dashboard" /> : <Home />;
             }}
           />
+          https://jobs-api.squareboat.info/api/v1
           <Redirect to="/dashboard" />
         </Switch>
       </BrowserRouter>
@@ -40,7 +41,11 @@ function App() {
           <Route path="/login" component={Login} exact />
           <Route path="/signup" component={SignUp} exact />
           <Route path="/forgot-password" component={ForgotPassword} exact />
-          <Route path="/reset-password" component={ResetPassword} exact />
+          <Route
+            path="/reset-password/:token"
+            component={ResetPassword}
+            exact
+          />
 
           <Route
             exact
