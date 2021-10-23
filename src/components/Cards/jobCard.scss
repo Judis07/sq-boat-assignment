@@ -53,8 +53,8 @@
     padding: 2em;
     color: #303f60;
     width: 90%;
-    max-width: 35em;
-    min-height: 25em;
+    // max-width: 35em;
+    min-height: 30em;
     border-radius: 20px;
   }
 
@@ -80,15 +80,17 @@
     height: 100%;
 
     .list-of-applicants {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+      gap: 2em;
+
+      padding: 0.5em;
       margin: 1em 0;
       background-color: #c6c6c6;
       width: 100%;
-      height: 30em;
+      min-height: 30em;
       border-radius: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
 
       svg {
         transform: scale(2.5);
@@ -98,6 +100,13 @@
         font-size: 20px;
         margin-top: 2em;
       }
+    }
+
+    .center-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
     }
   }
 }

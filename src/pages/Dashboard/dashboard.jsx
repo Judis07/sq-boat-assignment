@@ -19,8 +19,8 @@ const Dashboard = () => {
 
     const getData = async () => {
       setLoading(true);
-      const API_URL = "https://jobs-api.squareboat.info/api/v1/recruiters/jobs";
-      // const API_URL = "https://jobs-api.squareboat.info/api/v1/jobs";
+      // const API_URL ="https://jobs-api.squareboat.info/api/v1/recruiters/jobs/";
+      const API_URL = "https://jobs-api.squareboat.info/api/v1/jobs";
 
       try {
         const res = await axios.get(API_URL, {
@@ -30,7 +30,7 @@ const Dashboard = () => {
           },
         });
 
-        const { data } = res.data.data;
+        const { data } = res.data;
 
         setData(data);
       } catch (err) {

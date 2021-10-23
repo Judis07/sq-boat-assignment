@@ -1,0 +1,30 @@
+.applicant-card {
+  background-color: #fff;
+  border: 1px solid #303f6080;
+  border-radius: 5px;
+  padding: 1em;
+  height: fit-content;
+
+  .about {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1em;
+
+    .icon {
+      background-color: #d9efff;
+      border-radius: 50%;
+      text-align: center;
+      color: #303f60;
+      padding: 0.7em 1em;
+      margin-right: 1em;
+      //   text-transform: capitalize;
+    }
+  }
+
+  .skills {
+    .title {
+      font-weight: 600;
+      margin-bottom: 0.5em;
+    }
+  }
+}
