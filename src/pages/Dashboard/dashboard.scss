@@ -18,6 +18,30 @@
     row-gap: 2em;
   }
 
+  .pagination {
+    margin: 2em 0;
+    ul {
+      display: flex;
+      justify-content: space-evenly;
+
+      li {
+        cursor: pointer;
+        background-color: #43afff33;
+        border-radius: 5px;
+
+        a {
+          padding: 0.7em 1em;
+          font-size: 12px;
+          display: inline-block;
+        }
+      }
+
+      .page-selected {
+        border: 1px solid #1a253c;
+      }
+    }
+  }
+
   .post-job-action {
     position: absolute;
     top: 40em;

@@ -3,7 +3,8 @@
   border: 1px solid #303f6080;
   border-radius: 5px;
   padding: 1em;
-  height: fit-content;
+  // height: fit-content;
+  word-break: break-all;
 
   .about {
     display: flex;

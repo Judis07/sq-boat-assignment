@@ -15,50 +15,19 @@ function App() {
 
   useEffect(() => {}, [currentUser]);
 
-  if (currentUser) {
-    return (
-      <BrowserRouter>
-        <Switch>
-          <Route path="/dashboard" component={Dashboard} exact />
-          <Route path="/post-a-job" component={PostJob} exact />
-          <Route
-            exact
-            path="/"
-            render={() => {
-              return currentUser ? <Redirect to="/dashboard" /> : <Home />;
-            }}
-          />
-          https://jobs-api.squareboat.info/api/v1
-          <Redirect to="/dashboard" />
-        </Switch>
-      </BrowserRouter>
-    );
-  } else {
-    return (
-      <BrowserRouter>
-        <Switch>
-          <Route path="/" component={Home} exact />
-          <Route path="/login" component={Login} exact />
-          <Route path="/signup" component={SignUp} exact />
-          <Route path="/forgot-password" component={ForgotPassword} exact />
-          <Route
-            path="/reset-password/:token"
-            component={ResetPassword}
-            exact
-          />
-
-          <Route
-            exact
-            path="/"
-            render={() => {
-              return currentUser ? <Redirect to="/dashboard" /> : <Home />;
-            }}
-          />
-          {/* <Redirect to="/" /> */}
-        </Switch>
-      </BrowserRouter>
-    );
-  }
+  return (
+    <BrowserRouter>
+      <Switch>
+        <Route path="/" component={Home} exact />
+        <Route path="/login" component={Login} exact />
+        <Route path="/signup" component={SignUp} exact />
+        <Route path="/forgot-password" component={ForgotPassword} exact />
+        <Route path="/reset-password" component={ResetPassword} exact />
+        <Route path="/dashboard" component={Dashboard} exact />
+        <Route path="/post-a-job" component={PostJob} exact />
+      </Switch>
+    </BrowserRouter>
+  );
 }
 
 export default App;
