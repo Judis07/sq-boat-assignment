@@ -4,45 +4,73 @@ import Input from "../../components/Input/input";
 import PostJobAction from "../../components/Action/Job/job";
 import Navbar from "../../components/Navbar/navbar";
 
-import "./postJob.scss";
 import { getToken } from "../../utilis/store";
+import { redirectTo } from "../../utilis/redirect";
+import "./postJob.scss";
 
-const PostJob = () => {
+let formData = {
+  title: "",
+  description: "",
+  location: "",
+};
+
+const PostJob = (props) => {
+  const [formFields, setFormFields] = useState(formData);
+  const [allFilled, setAllFilled] = useState(false);
+
   const [btnClicked, setBtnClicked] = useState(false);
 
-  const getValuesFn = () => {};
+  const checkAll = () => {
+    const isComplete = [];
+
+    Object.keys(formFields).forEach(function (key) {
+      if (formFields[key] === "") {
+        isComplete.push(false);
+      } else {
+        isComplete.push(true);
+      }
+    });
+
+    if (isComplete.includes(false)) {
+      setAllFilled(false);
+      return false;
+    } else {
+      setAllFilled(true);
+      return true;
+    }
+  };
+
+  const getValuesFn = (data) => {
+    formData[data.id] = data.value;
+
+    checkAll();
+
+    setFormFields(formData);
+  };
 
   const onSubmit = async () => {
     setBtnClicked(true);
 
     const userToken = getToken();
 
-    // console.log("userToken", userToken);
-
-    return;
-
     const API_URL = "https://jobs-api.squareboat.info/api/v1//jobs";
-    // this is a test user
 
-    const params = JSON.stringify({
-      title: "React SDE",
-      description: "By Arvind",
-      location: "Delhi",
-    });
+    const params = JSON.stringify(formFields);
 
-    try {
-      const res = await axios.post(API_URL, params, {
-        headers: {
-          Authorization: userToken,
-          "content-type": "application/json",
-        },
-      });
+    if (allFilled) {
+      // return null;
+      try {
+        const res = await axios.post(API_URL, params, {
+          headers: {
+            Authorization: userToken,
+            "content-type": "application/json",
+          },
+        });
 
-      // console.log("res", res);
-
-      const { data } = res.data;
-    } catch (err) {
-      console.log("err", err);
+        redirectTo(props, "/dashboard");
+      } catch (err) {
+        console.log("err", err);
+      }
     }
   };
 
@@ -59,7 +87,7 @@ const PostJob = () => {
           <div className="form-elements">
             <Input
               type="text"
-              name="jobTitle"
+              name="title"
               label="Job Title*"
               placeholder="Enter job title"
               getValuesFn={getValuesFn}
