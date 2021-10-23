@@ -1,0 +1,26 @@
+.user-logout-container {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+
+  .user-logout {
+    background-color: #d9efff;
+    border-radius: 50%;
+    text-align: center;
+    color: #303f60;
+
+    .username {
+      padding: 0.7em 1em;
+    }
+  }
+}
+
+.custom-pop {
+  margin-top: 1em;
+}
+
+.logout-action {
+  padding: 1em 1.5em;
+  text-align: left;
+  cursor: pointer;
+}

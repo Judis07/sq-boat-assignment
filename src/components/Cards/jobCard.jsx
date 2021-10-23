@@ -3,6 +3,7 @@ import Dialog from "@mui/material/Dialog";
 import Slide from "@mui/material/Slide";
 import CloseIcon from "@mui/icons-material/Close";
 import DescriptionIcon from "@mui/icons-material/Description";
+import RoomOutlinedIcon from "@mui/icons-material/RoomOutlined";
 
 import "./jobCard.scss";
 
@@ -29,7 +30,12 @@ const JobCard = ({ title, description, location }) => {
         <div className="description">{description}</div>
 
         <div className="job-actions">
-          <div className="location">{location}</div>
+          <div className="location">
+            <div className="location-icon">
+              <RoomOutlinedIcon />
+            </div>
+            <div className="text">{location}</div>
+          </div>
 
           <div className="view-applicants" onClick={handleClickOpen}>
             View applications

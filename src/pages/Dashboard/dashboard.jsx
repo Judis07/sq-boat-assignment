@@ -6,8 +6,8 @@ import PostJobAction from "../../components/Action/Job/job";
 import Navbar from "../../components/Navbar/navbar";
 import { getToken } from "../../utilis/store";
 
-import "./dashboard.scss";
 import JobCard from "../../components/Cards/jobCard";
+import "./dashboard.scss";
 
 const Dashboard = () => {
   const [loading, setLoading] = useState(false);
