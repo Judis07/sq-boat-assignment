@@ -3,45 +3,72 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import Input from "../../components/Input/input";
 import Navbar from "../../components/Navbar/navbar";
-
+import { redirectTo } from "../../utilis/redirect";
 import { toLocalStorage } from "../../utilis/store";
 
 import "./styles.scss";
 
+let formData = {
+  email: "",
+  password: "",
+};
+
 const Login = (props) => {
+  const [formFields, setFormFields] = useState(formData);
+  const [allFilled, setAllFilled] = useState(false);
   const [btnClicked, setBtnClicked] = useState(false);
 
-  const getValuesFn = () => {};
+  const checkAll = () => {
+    const isComplete = [];
+
+    Object.keys(formFields).forEach(function (key) {
+      if (formFields[key] === "") {
+        isComplete.push(false);
+      } else {
+        isComplete.push(true);
+      }
+    });
+
+    if (isComplete.includes(false)) {
+      setAllFilled(false);
+      return false;
+    } else {
+      setAllFilled(true);
+      return true;
+    }
+  };
+
+  const getValuesFn = (data) => {
+    formData[data.id] = data.value;
+
+    checkAll();
+
+    setFormFields(formData);
+  };
 
   const onSubmit = async () => {
     setBtnClicked(true);
 
-    // return;
-
     const API_URL = "https://jobs-api.squareboat.info/api/v1//auth/login";
-    // this is a test user
 
-    const params = JSON.stringify({
-      email: "arvind@myjob.com",
-      password: "arvindmyjob@9876",
-    });
+    const params = JSON.stringify(formFields);
 
-    try {
-      const res = await axios.post(API_URL, params, {
-        headers: {
-          "content-type": "application/json",
-        },
-      });
+    if (allFilled) {
+      try {
+        const res = await axios.post(API_URL, params, {
+          headers: {
+            "content-type": "application/json",
+          },
+        });
 
-      // console.log("res", res);
+        const { data } = res.data;
 
-      const { data } = res.data;
+        toLocalStorage(data);
 
-      toLocalStorage(data);
-
-      props.history.push("/dashboard");
-    } catch (err) {
-      console.log("err", err);
+        redirectTo(props, "/dashboard");
+      } catch (err) {
+        console.log("err", err);
+      }
     }
   };
 

@@ -58,7 +58,6 @@ const PostJob = (props) => {
     const params = JSON.stringify(formFields);
 
     if (allFilled) {
-      // return null;
       try {
         const res = await axios.post(API_URL, params, {
           headers: {
