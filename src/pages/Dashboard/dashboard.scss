@@ -20,8 +20,17 @@
 
   .post-job-action {
     position: absolute;
-    top: 45em;
+    top: 40em;
     left: 40%;
+
+    .post-icon {
+      text-align: center;
+      svg {
+        color: #cecece;
+        transform: scale(5);
+      }
+      margin-bottom: 3em;
+    }
 
     .job-msg {
       font-size: 20px;

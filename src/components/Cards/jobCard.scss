@@ -42,3 +42,57 @@
     }
   }
 }
+
+.card-modal {
+  .css-1t1j96h-MuiPaper-root-MuiDialog-paper {
+    padding: 2em;
+    color: #303f60;
+    width: 90%;
+    max-width: 35em;
+    min-height: 25em;
+    border-radius: 20px;
+  }
+
+  .modal-head {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #c6c6c6;
+    padding-bottom: 0.5em;
+
+    .title {
+      font-weight: 600;
+      font-size: 19px;
+    }
+
+    .close-icon {
+      cursor: pointer;
+    }
+  }
+
+  .modal-content {
+    padding: 1em 0;
+    width: 100%;
+    height: 100%;
+
+    .list-of-applicants {
+      margin: 1em 0;
+      background-color: #c6c6c6;
+      width: 100%;
+      height: 30em;
+      border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+
+      svg {
+        transform: scale(2.5);
+      }
+
+      .text {
+        font-size: 20px;
+        margin-top: 2em;
+      }
+    }
+  }
+}

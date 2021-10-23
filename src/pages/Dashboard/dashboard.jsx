@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import PostAddIcon from "@mui/icons-material/PostAdd";
 import PostJobAction from "../../components/Action/Job/job";
 import Navbar from "../../components/Navbar/navbar";
 import { getToken } from "../../utilis/store";
@@ -67,6 +68,9 @@ const Dashboard = () => {
 
             {jobData.length === 0 && (
               <div className="post-job-action">
+                <div className="post-icon">
+                  <PostAddIcon />
+                </div>
                 <div className="job-msg">Your posted jobs will show here!</div>
                 <div className="submit">
                   <Link className="login-btn" to="/post-a-job">
