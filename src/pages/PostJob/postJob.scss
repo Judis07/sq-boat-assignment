@@ -1,0 +1,35 @@
+.postjob-container {
+  .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10em;
+
+    .form-div {
+      box-shadow: 4px 4px 25px #557da526;
+      border-radius: 20px;
+      padding: 2em;
+      width: 30em;
+      background-color: #fff;
+
+      h3 {
+        font-weight: 500;
+      }
+
+      p {
+        color: #303f60;
+        font-size: 14px;
+        margin: 2em 0;
+      }
+
+      .footer {
+        text-align: center;
+        font-size: 16px;
+
+        .register-link {
+          color: #43afff;
+        }
+      }
+    }
+  }
+}

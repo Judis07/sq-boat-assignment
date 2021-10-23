@@ -4,9 +4,11 @@ import axios from "axios";
 import Input from "../../components/Input/input";
 import Navbar from "../../components/Navbar/navbar";
 
+import { toLocalStorage } from "../../utilis/store";
+
 import "./styles.scss";
 
-const Login = () => {
+const Login = (props) => {
   const [btnClicked, setBtnClicked] = useState(false);
 
   const getValuesFn = () => {};
@@ -14,7 +16,7 @@ const Login = () => {
   const onSubmit = async () => {
     setBtnClicked(true);
 
-    return;
+    // return;
 
     const API_URL = "https://jobs-api.squareboat.info/api/v1//auth/login";
     // this is a test user
@@ -31,7 +33,13 @@ const Login = () => {
         },
       });
 
-      console.log("res", res);
+      // console.log("res", res);
+
+      const { data } = res.data;
+
+      toLocalStorage(data);
+
+      props.history.push("/dashboard");
     } catch (err) {
       console.log("err", err);
     }

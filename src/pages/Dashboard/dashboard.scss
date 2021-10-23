@@ -10,6 +10,14 @@
     }
   }
 
+  .job-cards {
+    margin-top: 2em;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 2em;
+    row-gap: 2em;
+  }
+
   .post-job-action {
     position: absolute;
     top: 45em;

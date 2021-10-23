@@ -19,11 +19,12 @@ const SignUp = () => {
     // this is a test user
 
     const params = JSON.stringify({
-      email: "arvind@myjob.com",
-      password: "arvindmyjob@9876",
-      confirmPassword: "arvindmyjob@9876",
+      email: "nexus@myjob.com",
+      password: "nexusmyjob@9876",
+      confirmPassword: "nexusmyjob@9876",
       userRole: 0,
-      name: "Arvind",
+      name: "Nexus",
+      skills: "",
     });
 
     try {

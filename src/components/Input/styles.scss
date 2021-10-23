@@ -17,7 +17,8 @@
     color: #43afff;
   }
 
-  input {
+  input,
+  textarea {
     width: 100%;
     background: none;
     // border: 1px solid #43afff;
@@ -29,6 +30,10 @@
     padding: 0.6em;
     width: 100%;
     margin-bottom: 0.5em;
+  }
+
+  textarea {
+    resize: none;
   }
 
   .input-err {

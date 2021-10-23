@@ -13,6 +13,7 @@ const Input = (props) => {
     btnClicked,
     required,
     getValuesFn,
+    isTextArea,
   } = props;
 
   const [value, setValue] = useState("");
@@ -47,14 +48,27 @@ const Input = (props) => {
           </Link>
         )}
       </div>
-      <input
-        type={type}
-        onChange={handleChange}
-        name={name}
-        placeholder={placeholder}
-        value={value}
-        className={btnClicked && required && !value ? "input-err" : ""}
-      />
+
+      {isTextArea ? (
+        <textarea
+          rows="7"
+          type={type}
+          onChange={handleChange}
+          name={name}
+          placeholder={placeholder}
+          value={value}
+          className={btnClicked && required && !value ? "input-err" : ""}
+        />
+      ) : (
+        <input
+          type={type}
+          onChange={handleChange}
+          name={name}
+          placeholder={placeholder}
+          value={value}
+          className={btnClicked && required && !value ? "input-err" : ""}
+        />
+      )}
 
       {btnClicked && required && !value && (
         <div className="mandatory-err">This field is mandatory</div>
