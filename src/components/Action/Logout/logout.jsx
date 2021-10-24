@@ -5,7 +5,8 @@ import { logout } from "../../../utilis/logout";
 import "./logout.scss";
 import { getFirstLetter } from "../../../utilis/getFirstWord";
 
-const Logout = () => {
+const Logout = (props) => {
+  console.log("props", props);
   const currentUser = JSON.parse(localStorage.getItem("user"));
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -40,7 +41,13 @@ const Logout = () => {
           horizontal: "left",
         }}
       >
-        <div className="logout-action" onClick={() => logout()}>
+        <div
+          className="logout-action"
+          onClick={() => {
+            props.history.push("/");
+            logout();
+          }}
+        >
           Logout
         </div>
       </Popover>

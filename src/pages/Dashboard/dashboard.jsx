@@ -9,7 +9,7 @@ import Navbar from "../../components/Navbar/navbar";
 import JobCard from "../../components/Cards/jobCard";
 import "./dashboard.scss";
 
-const Dashboard = () => {
+const Dashboard = (props) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [jobData, setData] = useState([]);
@@ -60,7 +60,7 @@ const Dashboard = () => {
   return (
     <div className="dashboard-container">
       <Navbar>
-        <PostJobAction />
+        <PostJobAction history={props.history} />
       </Navbar>
 
       <div className="inner-container">

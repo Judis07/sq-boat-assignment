@@ -1,5 +1,6 @@
-import { useEffect } from "react";
-import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter, Switch } from "react-router-dom";
+import ProtectedRoute from "./routes/protectedRoute";
+import InitialRoute from "./routes/initialRoute";
 import Dashboard from "./pages/Dashboard/dashboard";
 import Home from "./pages/Home/home";
 import ForgotPassword from "./pages/LoginSignup/forgotpassword";
@@ -9,22 +10,20 @@ import SignUp from "./pages/LoginSignup/signup";
 import PostJob from "./pages/PostJob/postJob";
 
 function App() {
-  let currentUser = localStorage.getItem("user");
-
-  // console.log("from app.js", currentUser);
-
-  useEffect(() => {}, [currentUser]);
-
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/" component={Home} exact />
-        <Route path="/login" component={Login} exact />
-        <Route path="/signup" component={SignUp} exact />
-        <Route path="/forgot-password" component={ForgotPassword} exact />
-        <Route path="/reset-password" component={ResetPassword} exact />
-        <Route path="/dashboard" component={Dashboard} exact />
-        <Route path="/post-a-job" component={PostJob} exact />
+        <InitialRoute path="/" component={Home} exact />
+        <InitialRoute path="/login" component={Login} exact />
+        <InitialRoute path="/signup" component={SignUp} exact />
+        <InitialRoute
+          path="/forgot-password"
+          component={ForgotPassword}
+          exact
+        />
+        <InitialRoute path="/reset-password" component={ResetPassword} exact />
+        <ProtectedRoute path="/dashboard" component={Dashboard} exact />
+        <ProtectedRoute path="/post-a-job" component={PostJob} exact />
       </Switch>
     </BrowserRouter>
   );
