@@ -3,7 +3,7 @@ import LoginAction from "../../components/Action/Login/loginAction";
 import CardOne from "../../components/Cards/cardOne";
 import Navbar from "../../components/Navbar/navbar";
 
-import { cardData } from "./data";
+import { cardData, companies } from "./data";
 
 import "./home.scss";
 
@@ -30,7 +30,8 @@ const Home = () => {
 
             <div className="hero-img">
               <img
-                src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2072&q=80"
+                // src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2072&q=80"
+                src="https://i.imgur.com/gY0aZTQ.png"
                 alt=""
               />
             </div>
@@ -58,6 +59,16 @@ const Home = () => {
 
           <div className="companies">
             <div className="section-title">Companies Who Trust Us</div>
+
+            <div className="section-img">
+              {companies.map((info) => {
+                return (
+                  <span key={info.id}>
+                    <img src={info.url} alt="" />
+                  </span>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>

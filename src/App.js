@@ -21,7 +21,11 @@ function App() {
           component={ForgotPassword}
           exact
         />
-        <InitialRoute path="/reset-password" component={ResetPassword} exact />
+        <InitialRoute
+          path="/reset-password/:id"
+          component={ResetPassword}
+          exact
+        />
         <ProtectedRoute path="/dashboard" component={Dashboard} exact />
         <ProtectedRoute path="/post-a-job" component={PostJob} exact />
       </Switch>

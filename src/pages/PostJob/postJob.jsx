@@ -76,7 +76,7 @@ const PostJob = (props) => {
   return (
     <div className="postjob-container">
       <Navbar>
-        <PostJobAction />
+        <PostJobAction history={props.history} />
       </Navbar>
 
       <div className="content">

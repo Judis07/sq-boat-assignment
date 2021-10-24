@@ -48,7 +48,7 @@
   .overview {
     background-color: #edf6ff;
     padding-top: 10em;
-    padding-bottom: 10em;
+    padding-bottom: 5em;
 
     .section-title {
       font-size: 22px;
@@ -60,6 +60,21 @@
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         column-gap: 2em;
+      }
+    }
+
+    .section-img {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+
+      span {
+        width: 20%;
+        margin: 1em 0;
+        img {
+          width: 10em;
+        }
       }
     }
   }
