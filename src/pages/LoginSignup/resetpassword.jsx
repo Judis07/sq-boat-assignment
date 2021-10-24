@@ -26,7 +26,7 @@ const ResetPassword = (props) => {
       formData.token = token;
       const API_URL = `https://jobs-api.squareboat.info/api/v1/auth/resetpassword/${token}`;
       try {
-        const res = await axios.get(API_URL, {
+        await axios.get(API_URL, {
           headers: {
             "content-type": "application/json",
           },
