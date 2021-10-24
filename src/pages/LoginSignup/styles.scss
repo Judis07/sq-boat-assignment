@@ -5,7 +5,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0 auto;
+    width: 90%;
     margin-top: 10em;
+    @media screen and (max-width: 500px) {
+      margin-top: 2em;
+    }
 
     .form-div {
       box-shadow: 4px 4px 25px #557da526;
@@ -13,6 +18,9 @@
       padding: 2em;
       width: 30em;
       background-color: #fff;
+      @media screen and (max-width: 500px) {
+        width: initial;
+      }
 
       h3 {
         font-weight: 500;

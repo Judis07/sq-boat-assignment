@@ -10,6 +10,10 @@
       grid-template-columns: repeat(2, 1fr);
       column-gap: 5em;
       align-items: center;
+      @media screen and (max-width: 800px) {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
     }
 
     .title {
@@ -37,6 +41,11 @@
     .hero-img {
       width: 35em;
       margin-bottom: -8em;
+      @media screen and (max-width: 800px) {
+        width: 30em;
+        margin: 2em auto;
+        margin-bottom: -8em;
+      }
 
       img {
         // box-shadow: 0px 30px 36px #557da526;
@@ -60,6 +69,10 @@
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         column-gap: 2em;
+        @media screen and (max-width: 800px) {
+          grid-template-columns: 1fr;
+          row-gap: 2em;
+        }
       }
     }
 
@@ -68,12 +81,27 @@
       flex-wrap: wrap;
       align-items: center;
       justify-content: center;
+      @media screen and (max-width: 500px) {
+        flex-wrap: nowrap;
+        flex-direction: column;
+      }
 
       span {
         width: 20%;
         margin: 1em 0;
+
+        @media screen and (max-width: 800px) {
+          width: 15%;
+        }
+
+        @media screen and (max-width: 500px) {
+          width: 50%;
+        }
         img {
           width: 10em;
+          @media screen and (max-width: 800px) {
+            width: 100%;
+          }
         }
       }
     }
