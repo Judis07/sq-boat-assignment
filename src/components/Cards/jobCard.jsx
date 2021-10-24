@@ -17,13 +17,10 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 const JobCard = ({ id, title, description, location }) => {
   const [open, setOpen] = useState(false);
 
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
   const [applicants, setApplicants] = useState(null);
 
   const handleClickOpen = async (jobID) => {
     setOpen(true);
-    setLoading(true);
 
     const userToken = getToken();
 
@@ -42,9 +39,7 @@ const JobCard = ({ id, title, description, location }) => {
       setApplicants(data);
     } catch (err) {
       console.log("err", err);
-      setError(true);
     }
-    setLoading(false);
   };
 
   const handleClose = () => {

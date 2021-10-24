@@ -11,7 +11,7 @@ import "./dashboard.scss";
 
 const Dashboard = (props) => {
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
+  // const [error, setError] = useState(false);
   const [jobData, setData] = useState([]);
   const [total, setTotal] = useState(null);
   const [currPage, setCurrPage] = useState(null);
@@ -49,7 +49,7 @@ const Dashboard = (props) => {
         setTotal(count / limit);
       } catch (err) {
         console.log("err", err);
-        setError(true);
+        // setError(true);
       }
       setLoading(false);
     };

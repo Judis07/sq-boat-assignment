@@ -59,7 +59,7 @@ const PostJob = (props) => {
 
     if (allFilled) {
       try {
-        const res = await axios.post(API_URL, params, {
+        await axios.post(API_URL, params, {
           headers: {
             Authorization: userToken,
             "content-type": "application/json",

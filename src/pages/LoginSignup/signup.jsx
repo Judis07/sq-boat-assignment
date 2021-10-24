@@ -49,9 +49,9 @@ const SignUp = (props) => {
   const getValuesFn = (data) => {
     formData[data.id] = data.value;
 
-    if (formData.userRole == 0) {
+    if (formData.userRole === 0) {
       formData.skills = null;
-    } else if (formData.userRole == 1 && !formData.skills) {
+    } else if (formData.userRole === 1 && !formData.skills) {
       formData.skills = "";
     }
 

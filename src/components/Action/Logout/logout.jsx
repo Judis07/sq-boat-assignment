@@ -2,11 +2,10 @@ import { useState } from "react";
 import Popover from "@mui/material/Popover";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import { logout } from "../../../utilis/logout";
-import "./logout.scss";
 import { getFirstLetter } from "../../../utilis/getFirstWord";
+import "./logout.scss";
 
 const Logout = (props) => {
-  console.log("props", props);
   const currentUser = JSON.parse(localStorage.getItem("user"));
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -27,7 +26,7 @@ const Logout = (props) => {
           <div className="username">{getFirstLetter(currentUser.name)}</div>
         </div>
         <div>
-          <ArrowDropDownIcon />
+          <ArrowDropDownIcon className="drop-down-icon" />
         </div>
       </div>
       <Popover

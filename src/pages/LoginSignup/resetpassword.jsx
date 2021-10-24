@@ -37,7 +37,7 @@ const ResetPassword = (props) => {
     if (token) {
       verifyToken();
     }
-  }, []);
+  }, [token]);
 
   const checkAll = () => {
     const isComplete = [];
