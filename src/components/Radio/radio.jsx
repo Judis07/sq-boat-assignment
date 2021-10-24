@@ -3,14 +3,9 @@ import "./radio.scss";
 
 const Radio = ({ name, btnClicked, getValuesFn, slots }) => {
   const [value, setValue] = useState("");
-  useEffect(() => {
-    // for validation check
-    // console.log("slot date", btnClicked)
-  }, [btnClicked]);
+  useEffect(() => {}, [btnClicked]);
 
   const handleChange = (event) => {
-    console.log("change", event.target.value);
-
     setValue(event.target.value);
 
     const data = {

@@ -27,8 +27,6 @@ const ResetPassword = (props) => {
             "content-type": "application/json",
           },
         });
-
-        console.log("res", res);
       } catch (err) {
         console.log("err", err);
       }
@@ -69,8 +67,6 @@ const ResetPassword = (props) => {
 
   const onSubmit = async () => {
     setBtnClicked(true);
-
-    console.log("formFields", formFields);
 
     const API_URL = `https://jobs-api.squareboat.info/api/v1/auth/resetpassword/`;
 

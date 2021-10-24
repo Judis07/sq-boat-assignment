@@ -68,8 +68,6 @@ const SignUp = (props) => {
 
     const params = JSON.stringify(formFields);
 
-    console.log("params", params, allFilled);
-
     // return null;
 
     if (allFilled) {
@@ -86,10 +84,11 @@ const SignUp = (props) => {
 
         redirectTo(props, "/dashboard");
       } catch (err) {
-        console.log("err", err.response.data.errors[0]);
-        const { name } = err.response.data.errors[0];
+        const { message } = err.response.data;
 
-        setError(name);
+        if (message) {
+          setError(message);
+        }
       }
     }
   };
