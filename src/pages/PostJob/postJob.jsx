@@ -1,5 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
+import Backdrop from "@mui/material/Backdrop";
+import CircularProgress from "@mui/material/CircularProgress";
 import Input from "../../components/Input/input";
 import PostJobAction from "../../components/Action/Job/job";
 import Navbar from "../../components/Navbar/navbar";
@@ -15,6 +17,8 @@ let formData = {
 };
 
 const PostJob = (props) => {
+  const [open, setOpen] = useState(false);
+
   const [formFields, setFormFields] = useState(formData);
   const [allFilled, setAllFilled] = useState(false);
 
@@ -58,6 +62,7 @@ const PostJob = (props) => {
     const params = JSON.stringify(formFields);
 
     if (allFilled) {
+      setOpen(true);
       try {
         await axios.post(API_URL, params, {
           headers: {
@@ -69,6 +74,7 @@ const PostJob = (props) => {
         redirectTo(props, "/dashboard");
       } catch (err) {
         console.log("err", err);
+        setOpen(false);
       }
     }
   };
@@ -123,6 +129,12 @@ const PostJob = (props) => {
           </div>
         </div>
       </div>
+      <Backdrop
+        sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open={open}
+      >
+        <CircularProgress color="inherit" />
+      </Backdrop>
     </div>
   );
 };

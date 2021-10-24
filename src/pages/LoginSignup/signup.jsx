@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import Backdrop from "@mui/material/Backdrop";
+import CircularProgress from "@mui/material/CircularProgress";
 import FindInPageIcon from "@mui/icons-material/FindInPage";
 import GroupsIcon from "@mui/icons-material/Groups";
 import Input from "../../components/Input/input";
@@ -21,6 +23,8 @@ let formData = {
 };
 
 const SignUp = (props) => {
+  const [open, setOpen] = useState(false);
+
   const [formFields, setFormFields] = useState(formData);
   const [allFilled, setAllFilled] = useState(false);
   const [btnClicked, setBtnClicked] = useState(false);
@@ -71,6 +75,8 @@ const SignUp = (props) => {
     // return null;
 
     if (allFilled) {
+      setOpen(true);
+
       try {
         const res = await axios.post(API_URL, params, {
           headers: {
@@ -84,6 +90,8 @@ const SignUp = (props) => {
 
         redirectTo(props, "/dashboard");
       } catch (err) {
+        setOpen(false);
+
         const { message } = err.response.data;
 
         if (message) {
@@ -194,6 +202,12 @@ const SignUp = (props) => {
           </div>
         </div>
       </div>
+      <Backdrop
+        sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open={open}
+      >
+        <CircularProgress color="inherit" />
+      </Backdrop>
     </div>
   );
 };

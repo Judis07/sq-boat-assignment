@@ -1,5 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Backdrop from "@mui/material/Backdrop";
+import CircularProgress from "@mui/material/CircularProgress";
 import Navbar from "../../components/Navbar/navbar";
 import Input from "../../components/Input/input";
 
@@ -11,6 +13,8 @@ let formData = {
 
 const ResetPassword = (props) => {
   const { token } = props.match.params;
+  const [open, setOpen] = useState(false);
+
   const [formFields, setFormFields] = useState(formData);
   const [allFilled, setAllFilled] = useState(false);
   const [btnClicked, setBtnClicked] = useState(false);
@@ -75,6 +79,7 @@ const ResetPassword = (props) => {
     if (allFilled) {
       setError(null);
       setSuccesMsg(null);
+      setOpen(true);
       try {
         const res = await axios.post(API_URL, params, {
           headers: {
@@ -84,9 +89,11 @@ const ResetPassword = (props) => {
 
         const { message } = res.data;
         setSuccesMsg(message);
+        setOpen(false);
       } catch (err) {
         console.log("err", err);
 
+        setOpen(false);
         const { message } = err.response.data;
 
         setError(message);
@@ -140,6 +147,12 @@ const ResetPassword = (props) => {
           {error && <p className="err-msg">{error}</p>}
         </div>
       </div>
+      <Backdrop
+        sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open={open}
+      >
+        <CircularProgress color="inherit" />
+      </Backdrop>
     </div>
   );
 };

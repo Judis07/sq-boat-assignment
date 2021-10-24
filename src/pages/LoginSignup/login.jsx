@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import Backdrop from "@mui/material/Backdrop";
+import CircularProgress from "@mui/material/CircularProgress";
 import Input from "../../components/Input/input";
 import Navbar from "../../components/Navbar/navbar";
 import { redirectTo } from "../../utilis/redirect";
@@ -14,9 +16,13 @@ let formData = {
 };
 
 const Login = (props) => {
+  const [open, setOpen] = useState(false);
+
   const [formFields, setFormFields] = useState(formData);
   const [allFilled, setAllFilled] = useState(false);
   const [btnClicked, setBtnClicked] = useState(false);
+
+  const [error, setError] = useState(null);
 
   const checkAll = () => {
     const isComplete = [];
@@ -48,12 +54,15 @@ const Login = (props) => {
 
   const onSubmit = async () => {
     setBtnClicked(true);
+    setError(null);
 
     const API_URL = "https://jobs-api.squareboat.info/api/v1//auth/login";
 
     const params = JSON.stringify(formFields);
 
     if (allFilled) {
+      setOpen(true);
+
       try {
         const res = await axios.post(API_URL, params, {
           headers: {
@@ -64,10 +73,15 @@ const Login = (props) => {
         const { data } = res.data;
 
         toLocalStorage(data);
-
+        setOpen(false);
         redirectTo(props, "/dashboard");
       } catch (err) {
-        console.log("err", err);
+        console.log("err", err.response.data);
+        setOpen(false);
+
+        const { message } = err.response.data;
+
+        setError(message);
       }
     }
   };
@@ -112,6 +126,7 @@ const Login = (props) => {
               Login
             </button>
           </div>
+          {error && <p className="err-msg">{error}</p>}
 
           <div className="footer">
             New to MyJobs?{" "}
@@ -121,6 +136,12 @@ const Login = (props) => {
           </div>
         </div>
       </div>
+      <Backdrop
+        sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open={open}
+      >
+        <CircularProgress color="inherit" />
+      </Backdrop>
     </div>
   );
 };

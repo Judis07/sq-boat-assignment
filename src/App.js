@@ -22,7 +22,7 @@ function App() {
           exact
         />
         <InitialRoute
-          path="/reset-password/:id"
+          path="/reset-password/:token"
           component={ResetPassword}
           exact
         />

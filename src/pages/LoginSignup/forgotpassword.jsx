@@ -1,5 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
+import Backdrop from "@mui/material/Backdrop";
+import CircularProgress from "@mui/material/CircularProgress";
 import Navbar from "../../components/Navbar/navbar";
 import Input from "../../components/Input/input";
 
@@ -8,6 +10,8 @@ let formData = {
 };
 
 const ForgotPassword = (props) => {
+  const [open, setOpen] = useState(false);
+
   const [btnClicked, setBtnClicked] = useState(false);
   const [formFields, setFormFields] = useState(formData);
   const [allFilled, setAllFilled] = useState(false);
@@ -45,6 +49,7 @@ const ForgotPassword = (props) => {
     setBtnClicked(true);
 
     if (allFilled) {
+      setOpen(true);
       const API_URL = `https://jobs-api.squareboat.info/api/v1/auth/resetpassword?email=${formFields.email}`;
 
       try {
@@ -60,6 +65,7 @@ const ForgotPassword = (props) => {
         const { message } = err.response.data;
 
         setError(message);
+        setOpen(false);
       }
     }
   };
@@ -96,6 +102,12 @@ const ForgotPassword = (props) => {
           {error && <p className="err-msg">{error}</p>}
         </div>
       </div>
+      <Backdrop
+        sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open={open}
+      >
+        <CircularProgress color="inherit" />
+      </Backdrop>
     </div>
   );
 };
